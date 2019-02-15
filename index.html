@@ -5,7 +5,11 @@
 </head>
 
 <body>
-  <form id="post-form">
+  <form id="post-form" onsubmit="createPost();return false;">
+    Title: <input type="text" id="postTitle"><br>
+    Author: <input type="text" id="postAuthor"><br>
+    Post: <input type="text" id="postBody"><br>
+    <input type="submit">
   </form>
   <script id="page-template" type="text/x=lodash-template">
     <div id="sidebar"></div>
@@ -13,9 +17,16 @@
   </script>
   <script id="post-template" type="text/x=lodash-template">
     <article>
-      <div id="header"></div>
-      <div id="footer"></div>
+      <header><h2><%- title %></h2></header>
+      <p><%- body %></p>
+      <footer>Posted by: <%= poster %></footer>
     </article>
+  </script>
+  <script id="comment-template" type="text/x-losah-template">
+    <div>
+      <p><%= comment %></p>
+      <footer>Posted by: <%= commenter %></footer>
+    </div>
   </script>
 </body>
 </html>
