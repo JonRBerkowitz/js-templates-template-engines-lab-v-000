@@ -8,4 +8,11 @@ function CreatePost() {
   let post = document.getElementById("postBody").value;
 
   document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
+
+  let blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+  let commentsSection = commentsTemplate();
+  let postElement = document.getElementById("post");
+
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0],innerHTML = commentsSection;
 }
